@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/Pos-JavaFX.iml" filepath="$PROJECT_DIR$/Pos-JavaFX.iml" />
+      <module fileurl="file://$PROJECT_DIR$/UE-13/T.iml" filepath="$PROJECT_DIR$/UE-13/T.iml" />
+      <module fileurl="file://$PROJECT_DIR$/T/UE-13.iml" filepath="$PROJECT_DIR$/T/UE-13.iml" />
+      <module fileurl="file://$PROJECT_DIR$/UE-14/UE-14.iml" filepath="$PROJECT_DIR$/UE-14/UE-14.iml" />
+      <module fileurl="file://$PROJECT_DIR$/UE-15/UE-15.iml" filepath="$PROJECT_DIR$/UE-15/UE-15.iml" />
+    </modules>
+  </component>
+</project>

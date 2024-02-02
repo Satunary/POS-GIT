@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="rechner-einfach" />
+        <module name="DrawingContextExample" />
+        <module name="T" />
+        <module name="UE-15" />
+        <module name="UE-17" />
+        <module name="UE-16" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="T" target="18" />
+      <module name="U-15" target="18" />
+    </bytecodeTargetLevel>
+  </component>
+</project>

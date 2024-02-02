@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="UE-08" />
+        <module name="UE-07" />
+        <module name="ueben_fuer_Test" />
+        <module name="UE-09" />
+        <module name="UE-04" />
+        <module name="UE-03" />
+        <module name="UE-06" />
+        <module name="UE-05" />
+        <module name="UE-11" />
+        <module name="UE-10" />
+        <module name="UE-02" />
+        <module name="UE-01" />
+        <module name="Interface" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="UE-1" target="18" />
+      <module name="UE-11_AdventOC" target="18" />
+    </bytecodeTargetLevel>
+  </component>
+</project>

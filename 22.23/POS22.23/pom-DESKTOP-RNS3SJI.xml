@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>at.spenger</groupId>
+    <artifactId>pos</artifactId>
+    <packaging>pom</packaging>
+    <version>1.0-SNAPSHOT</version>
+    <modules>
+        <module>UE-01</module>
+        <module>UE-02</module>
+        <module>UE-03</module>
+        <module>UE-04</module>
+        <module>UE-05</module>
+        <module>UE-06</module>
+        <module>UE-07</module>
+        <module>UE-08</module>
+        <module>ueben_fuer_Test</module>
+        <module>Interface</module>
+        <module>UE-09</module>
+        <module>UE-10</module>
+        <module>UE-11_AdventOC</module>
+        <module>UE-11</module>
+    </modules>
+
+    <properties>
+        <maven.compiler.source>18</maven.compiler.source>
+        <maven.compiler.target>18</maven.compiler.target>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    </properties>
+
+</project>

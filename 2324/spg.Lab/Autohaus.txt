@@ -1,0 +1,33 @@
+﻿Promi;Vera Russwurm;;069912345678;vera@russwurm.at;nach 18 Uhr;10 
+Promi;Markus Rogan;Kaasgraben 13, 1170 Wien;0664 4174893;markus@rogan.at;Samstag Früh;5
+Promi;Simone;Hauptstrasse 5, 3105 St.Pölten;0676 1212435;simone@sing.at;Nur bei Frau Mimi;20
+Promi;Andreas Vitasek;Untere Viaduktstr. 3, 1030 Wien;06991 984712435;andreas@vitasek.at;;25
+
+Normal;Anna Huber;Rochusgasse 7, 1030 Wien;0676 4298539;hans@huber.at;y;woechentlich
+Normal;Tanja Lang;Aumannplatz 4/3/1, 1180 Wien;06991 112989;tanja@lang.at;y;monatlich
+Normal;Herbert Dolnak;Wattgasse 7, 1170 Wien;0680 4452539;herbert@dolnak.at;n;monatlich
+Normal;Susi Bauer;Oberlaerstr, 1100 Wien;0676 9498539;susi@bauer.at;y;halbjaehrlich
+Normal;Max Meier;7 1030 Wien,;0680 4298539;max@maier.at;y;monatlich
+Normal;Monika Spannberger;Rochusgasse 7 1030 Wien;0690 3142985;monika@spannberger.at;y;jaehrlich
+Normal;Tom Drechsler;Rochusgasse 7 1030 Wien;0676 4298239;tom@drechsler.at;n;nie
+           
+TestPerson;Martha Ludvig;Paniglgasse 3/17, 1040 Wien;06991 8194327;martha@ludvik.at;Pedro Müller;30          
+TestPerson;Hannah Offenbecher;Fasangasse 7, 1030 Wien;0676 1004120;hannah@lOffenbecher.at;Pedro Müller;30          
+TestPerson;Moritz Walderdorf;Sternwartestr 12/3, 1180 Wien;0676 4005172;moritz@walderdorf.at;Jean-Paul Lerocr;30
+
+Dienstleistung;Reifenwechsel;60;0.5
+Dienstleistung;Service;150;2
+Dienstleistung;Pickerl;150;2
+Dienstleistung;Waschen;60;0.5
+Dienstleistung;Ölwechsel;70;0.6
+
+Termin;Vera Russwurm;Waschen Ölwechsel;19.11.16 18:00
+Termin;Anna Huber;Service;19.11.16 14:00
+Termin;Herbert Dolnak;Reifenwechsel;19.11.16 9:00
+Termin;Monika Spannberger;Pickerl Waschen;19.11.16 12:00
+Termin;Tanja Lang;Waschen;19.11.16 17:00
+Termin;Susi Bauer;Service;19.11.16 13:00
+Termin;Max Meier;Waschen Pickerl;19.11.16 15:00
+Termin;Tom Drechsler;Waschen;20.11.16 10:30
+Termin;Vera Russwurm;Service;20.11.16 12:00
+Termin;Martha Ludvig;Service;20.11.16 17:00

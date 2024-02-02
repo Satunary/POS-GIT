@@ -1,0 +1,61 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="LinqInAction.LinqBooks.Common.Author">
+    <Position X="2.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAEAAAAAAAAAAAIAAAAQAgAAAAAAAAAAAAAAAAAg=</HashCode>
+      <FileName>BusinessObjects\Author.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsCollectionAssociation>
+      <Property Name="Books" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Class Name="LinqInAction.LinqBooks.Common.Book">
+    <Position X="6" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAKgAEAAAQAAAEAECMAAABAAAQBAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>BusinessObjects\Book.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Publisher" />
+      <Property Name="Subject" />
+    </ShowAsAssociation>
+    <ShowAsCollectionAssociation>
+      <Property Name="Authors" />
+      <Property Name="Reviews" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Class Name="LinqInAction.LinqBooks.Common.Publisher">
+    <Position X="8.75" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAQAAAAAAAAAEAIAAAAQAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>BusinessObjects\Publisher.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="LinqInAction.LinqBooks.Common.Review">
+    <Position X="0.5" Y="3" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAABAAAAAAAAAABAAAAAAAAAAAAAAAEAAAAAAAAAIAA=</HashCode>
+      <FileName>BusinessObjects\Review.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Book" />
+      <Property Name="User" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="LinqInAction.LinqBooks.Common.Subject">
+    <Position X="8.75" Y="1.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAgAAAEAAAAAAQAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>BusinessObjects\Subject.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="LinqInAction.LinqBooks.Common.User">
+    <Position X="0.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>BusinessObjects\User.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

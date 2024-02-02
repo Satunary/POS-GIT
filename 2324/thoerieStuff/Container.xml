@@ -1,0 +1,12 @@
+<Buecher>
+  <Buch>
+    <Titel>Bonjour mon Amour</Titel>
+    <Seiten>50</Seiten>
+    <Isbn>2-444-77777-2</Isbn>
+  </Buch>
+  <Buch>
+    <Titel>Funny Stories</Titel>
+    <Seiten>101</Seiten>
+    <Isbn>0-000-77777-2</Isbn>
+  </Buch>
+</Buecher>

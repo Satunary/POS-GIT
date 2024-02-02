@@ -1,0 +1,1 @@
+dotnet ef dbcontext scaffold "Data Source=Schule2023.db" microsoft.entityframeworkcore.sqlite -o Model -f

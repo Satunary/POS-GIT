@@ -1,0 +1,15 @@
+#BlueJ class context
+comment0.target=LKW
+comment1.params=
+comment1.target=LKW()
+comment2.params=raeder\ mitAnhaenger\ nutzlast
+comment2.target=LKW(int,\ boolean,\ double)
+comment3.params=raeder
+comment3.target=void\ setRaeder(int)
+comment4.params=mitAnhaenger
+comment4.target=void\ setMitAnhaenger(boolean)
+comment5.params=nutzlast
+comment5.target=void\ setNutzlast(double)
+comment6.params=
+comment6.target=void\ printLKW()
+numComments=7

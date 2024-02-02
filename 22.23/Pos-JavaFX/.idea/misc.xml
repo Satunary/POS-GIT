@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ExternalStorageConfigurationManager" enabled="true" />
+  <component name="MavenProjectsManager">
+    <option name="originalFiles">
+      <list>
+        <option value="$PROJECT_DIR$/UE-13/pom.xml" />
+        <option value="$PROJECT_DIR$/UE-15/pom.xml" />
+        <option value="$PROJECT_DIR$/pom.xml" />
+        <option value="$PROJECT_DIR$/UE-16/pom.xml" />
+        <option value="$PROJECT_DIR$/rechner-einfach/pom.xml" />
+        <option value="$PROJECT_DIR$/DrawingContextExample/pom.xml" />
+        <option value="$PROJECT_DIR$/UE-17/pom.xml" />
+        <option value="$PROJECT_DIR$/memory/pom.xml" />
+        <option value="$PROJECT_DIR$/temp/pom.xml" />
+        <option value="$PROJECT_DIR$/UE-18/pom.xml" />
+        <option value="$PROJECT_DIR$/plfs3-vorlage/pom.xml" />
+      </list>
+    </option>
+    <option name="ignoredFiles">
+      <set>
+        <option value="$PROJECT_DIR$/U-15/pom.xml" />
+      </set>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_19" default="true" project-jdk-name="openjdk-19" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/out" />
+  </component>
+</project>

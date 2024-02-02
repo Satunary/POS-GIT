@@ -1,0 +1,27 @@
+lvl 1
+Setting: 	start screen aber bissi näher am baum mit wasser links 
+		keine ahnung wo man ist, maby dialog
+lvl ergebniss: 
+		mit holz von Baum und steinen von Fluss feuer machen
+		random ass ppl sehen feuer und kommen nachsehen
+		maby dialog mit choice
+
+lvl 2
+choice: no I'd like to remain alone
+setting: selber ort aber mit lagerfeuer und messer von dorfbewohner
+
+lvl ergebniss: 
+		mit messer und holz yhandel machen und stein forne dran für speer
+		mit speer einen fisch fangen und maby mit messer ausnehmen und dann über lagerfeuer braten
+		schlafen gehen
+
+lvl 2
+choice: yes I'll gladly follow u 
+
+walking sequence mabyyyyyy
+
+settign: camp
+
+ergebniss:
+	bekommst speer und sollst fisch holen mit mini game (fisch schwimmt von liks nach rechts und du 	musst ihn ancklicken
+	fisch wird gegrillt und schlafen gehen
