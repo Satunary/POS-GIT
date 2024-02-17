@@ -46,6 +46,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ConsoleApp", "..\240110-Con
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "nwConsole", "..\Lab12\nwConsole\nwConsole.csproj", "{2E526431-5C72-4159-B864-CE15D8EEE341}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lab13", "..\Lab13\Lab13.csproj", "{260E099A-56CE-4CFD-A701-DBAA0CEDE16C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -124,6 +126,10 @@ Global
 		{2E526431-5C72-4159-B864-CE15D8EEE341}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2E526431-5C72-4159-B864-CE15D8EEE341}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2E526431-5C72-4159-B864-CE15D8EEE341}.Release|Any CPU.Build.0 = Release|Any CPU
+		{260E099A-56CE-4CFD-A701-DBAA0CEDE16C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{260E099A-56CE-4CFD-A701-DBAA0CEDE16C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{260E099A-56CE-4CFD-A701-DBAA0CEDE16C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{260E099A-56CE-4CFD-A701-DBAA0CEDE16C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
