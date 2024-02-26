@@ -41,7 +41,7 @@
                     Grid.Row="1"
                     Grid.Column="1"
                     x:Name="pickme"
-                    
+                    SelectedIndexChanged="pickme_SelectedIndexChanged"
                    
                     />
 
@@ -58,6 +58,8 @@
                     Grid.Row="2"
                     Grid.Column="1" 
                     Text=""
+                    x:Name="valEur"
+                    TextChanged="valEur_TextChanged"
                 />
 
                 <Label
@@ -65,22 +67,27 @@
                     Grid.Row="3"  
                     Grid.Column="0"
                     Text="Summe in "
+                    x:Name="sum"
                 />
                 <Entry
                     Grid.Row="3"
                     Grid.Column="1"  
                     Text=""
+                    x:Name="valAnd"
+                    TextChanged="valAnd_TextChanged"
                 />
                 
                 <Button
                     Grid.Row="4"
                     Grid.Column="0"
                     Text="Euro => "
+                    x:Name="btnEur"
                 />
                 <Button
                     Grid.Row="4"
                     Grid.Column="1"
-                    Text="Euro => "
+                    Text=" => Euro"
+                    x:Name="btnAnd"
                 />
             </Grid>
             
