@@ -1,0 +1,88 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:Angabe"
+             x:Class="Angabe.MainPage">
+
+
+    <ContentPage.Resources>
+        <local:MyConverter x:Key="intToBool" />
+    </ContentPage.Resources>
+    
+    <FlexLayout 
+            HorizontalOptions="FillAndExpand"
+            VerticalOptions="FillAndExpand"
+            BackgroundColor="{StaticResource Primary}"
+            JustifyContent="SpaceBetween">
+            
+            <HorizontalStackLayout Margin="5,0,0,0"
+                Spacing="10">
+                <Label Text="&#xfa38;"
+                    FontFamily="FluentFilled"
+                    TextColor="{StaticResource Primary}"
+                    HorizontalTextAlignment="Center"
+                    HorizontalOptions="StartAndExpand"
+                    VerticalTextAlignment="Center"
+                    BackgroundColor="White"
+                    VerticalOptions="Center"
+                    WidthRequest="30"
+                    HeightRequest="30"
+                    FontSize="Large"/>
+
+            <Label Text="&#xfcc5;"
+                    FontFamily="FluentFilled"
+                    TextColor="{StaticResource Primary}"
+                    HorizontalTextAlignment="Center"
+                    HorizontalOptions="StartAndExpand"
+                    VerticalTextAlignment="Center"
+                    BackgroundColor="White"
+                    VerticalOptions="Center"
+                    WidthRequest="30"
+                    HeightRequest="30"
+                    FontSize="Large">
+                <Label.Clip>
+                    <EllipseGeometry RadiusX="15"
+                        RadiusY="15"
+                        Center="15,15"/>
+                </Label.Clip>
+            </Label>
+
+            <Label Text="Inbox"
+                VerticalTextAlignment="Center"
+                HorizontalOptions="StartAndExpand"
+                TextColor="White"
+                FontAttributes="Bold"
+                FontSize="Large"/>
+                            </HorizontalStackLayout>
+                            <Label Text="&#xfb26;"
+                FontFamily="FluentRegular"
+                TextColor="White"
+                VerticalOptions="Center"
+                HorizontalOptions="EndAndExpand"
+                HorizontalTextAlignment="End"
+                WidthRequest="40"
+                FontSize="Large"
+                Margin="0,0,5,0"/>
+
+<!-- Die folgenden Elemente zeigen uns ein Converter Beispiel-->
+                
+        <Entry x:Name="entry1"
+               Text=""
+               BackgroundColor="GreenYellow"
+               Placeholder="enter search term"
+               VerticalOptions="Center" />
+                
+        <Button Text="Search"
+                BackgroundColor="GreenYellow"
+                HorizontalOptions="Center"
+                VerticalOptions="Center"
+                IsEnabled="{Binding Source={x:Reference entry1},
+                                    Path=Text.Length,
+                                    Converter={StaticResource intToBool}}" />
+        
+    </FlexLayout>
+
+
+            
+            
+</ContentPage>

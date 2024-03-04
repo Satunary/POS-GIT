@@ -6,8 +6,7 @@ namespace Lab14
 {
     public partial class MainPage : ContentPage
     {
-        private bool tryAnd = false;
-        private bool tryEur = false;
+        
         XmlTextReader reader = new XmlTextReader("https://www.ecb.europa.eu/stats/eurofxref/eurofxref-daily.xml");
         Dictionary<string,double> prices = new Dictionary<string,double>();
 
