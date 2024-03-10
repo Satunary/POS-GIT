@@ -8,13 +8,14 @@
     <ContentPage.Resources>
         <local:MyConverter x:Key="intToBool" />
     </ContentPage.Resources>
-    
-    <FlexLayout 
+
+    <VerticalStackLayout>
+        <FlexLayout 
             HorizontalOptions="FillAndExpand"
             VerticalOptions="FillAndExpand"
             BackgroundColor="{StaticResource Primary}"
             JustifyContent="SpaceBetween">
-            
+
             <HorizontalStackLayout Margin="5,0,0,0"
                 Spacing="10">
                 <Label Text="&#xfa38;"
@@ -29,7 +30,7 @@
                     HeightRequest="30"
                     FontSize="Large"/>
 
-            <Label Text="&#xfcc5;"
+                <Label Text="&#xfcc5;"
                     FontFamily="FluentFilled"
                     TextColor="{StaticResource Primary}"
                     HorizontalTextAlignment="Center"
@@ -40,21 +41,21 @@
                     WidthRequest="30"
                     HeightRequest="30"
                     FontSize="Large">
-                <Label.Clip>
-                    <EllipseGeometry RadiusX="15"
+                    <Label.Clip>
+                        <EllipseGeometry RadiusX="15"
                         RadiusY="15"
                         Center="15,15"/>
-                </Label.Clip>
-            </Label>
+                    </Label.Clip>
+                </Label>
 
-            <Label Text="Inbox"
+                <Label Text="Inbox"
                 VerticalTextAlignment="Center"
                 HorizontalOptions="StartAndExpand"
                 TextColor="White"
                 FontAttributes="Bold"
                 FontSize="Large"/>
-                            </HorizontalStackLayout>
-                            <Label Text="&#xfb26;"
+            </HorizontalStackLayout>
+            <Label Text="&#xfb26;"
                 FontFamily="FluentRegular"
                 TextColor="White"
                 VerticalOptions="Center"
@@ -64,25 +65,39 @@
                 FontSize="Large"
                 Margin="0,0,5,0"/>
 
-<!-- Die folgenden Elemente zeigen uns ein Converter Beispiel-->
-                
-        <Entry x:Name="entry1"
+            <!-- Die folgenden Elemente zeigen uns ein Converter Beispiel-->
+
+            <Entry x:Name="entry1"
                Text=""
                BackgroundColor="GreenYellow"
                Placeholder="enter search term"
                VerticalOptions="Center" />
-                
-        <Button Text="Search"
+
+            <Button Text="Search"
+                Clicked="Search"
                 BackgroundColor="GreenYellow"
                 HorizontalOptions="Center"
                 VerticalOptions="Center"
                 IsEnabled="{Binding Source={x:Reference entry1},
                                     Path=Text.Length,
                                     Converter={StaticResource intToBool}}" />
+
+
+
+
+        </FlexLayout>
+
+        <CollectionView x:Name="col">
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <Label Text="{Binding Bez}"/>
+                </DataTemplate>
+                
+            </CollectionView.ItemTemplate>
+            
+        </CollectionView>
         
-    </FlexLayout>
+    </VerticalStackLayout>
 
 
-            
-            
 </ContentPage>
