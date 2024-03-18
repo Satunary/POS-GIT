@@ -6,7 +6,8 @@ namespace Lab14
 {
     public partial class MainPage : ContentPage
     {
-        
+        private bool tryEr =false;
+        private bool tryAnd =false;
         XmlTextReader reader = new XmlTextReader("https://www.ecb.europa.eu/stats/eurofxref/eurofxref-daily.xml");
         Dictionary<string,double> prices = new Dictionary<string,double>();
 
@@ -48,30 +49,32 @@ namespace Lab14
 
         private void valEur_TextChanged(object sender, TextChangedEventArgs e)
         {
-            /*if (tryAnd)
+            if (tryEr)
             {
-                tryAnd = false;
+                tryEr = false;
                 return;
-            }*/
+            }
             if (valEur.Text != null && double.TryParse(valEur.Text, out double a) && pickme.SelectedItem != null)
             {
+                tryAnd = true;
                 valAnd.Text = Math.Round((double.Parse(valEur.Text) * prices[pickme.SelectedItem.ToString()]),2).ToString();
-                //tryAnd = true;
+                
             }
             if (valEur.Text.Length == 0) valAnd.Text = ""; //tryAnd = true;
         }
 
         private void valAnd_TextChanged(object sender, TextChangedEventArgs e)
         {
-            /*if (tryAnd) 
+            if (tryAnd) 
             {
                 tryAnd=false;
                 return;
-            }*/
+            }
             if ( valAnd.Text != null&& double.TryParse(valAnd.Text,out double a) && pickme.SelectedItem != null)
             {
+                tryEr = true;
                 valEur.Text = Math.Round((double.Parse(valAnd.Text) / prices[pickme.SelectedItem.ToString()]),2).ToString();
-                //tryAnd = true;
+                
             }
             if (valAnd.Text.Length == 0) valEur.Text = ""; //tryAnd=true;
         }
