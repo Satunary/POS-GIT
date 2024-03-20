@@ -10,10 +10,6 @@ namespace Lab16
     {
     }
 
-    public record MotorcycleList
-    {
-        public List<Motorcycle> List { get; set; }
-    }
     public record Motorcycle
     {
         public string Make { get; init; }

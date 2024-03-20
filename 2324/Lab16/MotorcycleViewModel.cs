@@ -17,21 +17,34 @@ namespace Lab16
 {
 
     public class MotorcycleViewModel : ObservableObject
+
     {
-        MotorcycleModel models;
+        private ObservableCollection<Motorcycle> _motorcycles;
+        public ObservableCollection<Motorcycle> Motorcycles
+        {
+            get { return _motorcycles; }
+            set
+            {
+                SetProperty(ref _motorcycles, value);
+            }
+        }
         HttpClient httpClient = new()
         {
             BaseAddress = new Uri("https://api.api-ninjas.com/v1/motorcycles?make=KTM" + "")
         };
 
+        public MotorcycleViewModel() { Motorcycles = new ObservableCollection<Motorcycle>();
+            //Fetch("KTM");
+        }
+
         public IRelayCommand<string> Fetching => new RelayCommand<string>(Fetch);
 
-        //public object Request { get => request; set => request = value; }
+        //public object Request { get => request; set => request = value;
 
         public async void Fetch(string make)
         {
             httpClient.DefaultRequestHeaders.Add("X-Api-Key", "ieXotCDQwJeZ4vpH+SkGXw==L6kbEKfYEEAvcGUH");
-            models.MotorcycleList = await httpClient.GetFromJsonAsync<MotorcycleList>($"https://api.api-ninjas.com/v1/motorcycles?make={make}");
+            Motorcycles = await httpClient.GetFromJsonAsync<ObservableCollection<Motorcycle>>($"https://api.api-ninjas.com/v1/motorcycles?make={make}");
         }
     }
 }

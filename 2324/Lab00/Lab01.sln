@@ -56,7 +56,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Angabe17", "..\Angabe15-Vor
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ClockSample", "..\240313-ClockSample\ClockSample\ClockSample.csproj", "{E8CAC9C1-361E-4D88-92A0-1EEC0A109788}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lab16", "..\Lab16\Lab16.csproj", "{1E426366-5AE1-4CB9-A51E-66FE0B158CAE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Lab16", "..\Lab16\Lab16.csproj", "{1E426366-5AE1-4CB9-A51E-66FE0B158CAE}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
