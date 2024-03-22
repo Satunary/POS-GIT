@@ -19,6 +19,18 @@ namespace Lab16
     public class MotorcycleViewModel : ObservableObject
 
     {
+        //select noch einbauen liste:
+        /*ktm
+        honda
+        kawasaki
+        yamaha
+        aprilia
+        malaguti
+        vins
+        ajp
+        access
+        beta*/
+
         private ObservableCollection<Motorcycle> _motorcycles;
         public ObservableCollection<Motorcycle> Motorcycles
         {
