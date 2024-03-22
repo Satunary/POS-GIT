@@ -4,8 +4,7 @@
              xmlns:local="clr-namespace:Lab16"
              x:Class="Lab16.MainPage"
              x:DataType="local:MotorcycleViewModel">
-    
-    
+
     <ScrollView>
         <Grid>
             <Grid.RowDefinitions>
@@ -22,15 +21,23 @@
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
 
-            <CollectionView Grid.ColumnSpan="2" Grid.RowSpan="4" ItemsSource="{Binding Motorcycles}">
+
+            <CollectionView Grid.ColumnSpan="2" Grid.RowSpan="4" ItemsSource="{Binding Motorcycles}"
+                            
+                            >
                 <CollectionView.ItemTemplate>
-                    <DataTemplate>
-                        <Label Text="{Binding Model, Source=Motorcycles}"/>
+                    <DataTemplate x:DataType="local:Motorcycle">
+                        <VerticalStackLayout >
+                            <Label Text="{Binding  Model}" ></Label>
+                        </VerticalStackLayout>
                     </DataTemplate>
                 </CollectionView.ItemTemplate>
-                  
-            </CollectionView>
+                
 
+            </CollectionView>
+            
+
+           
             <Label Grid.Row="0" Grid.Column="2" Text="Name"/>
             <Label Grid.Row="0" Grid.Column="3" Text=""/>
             
