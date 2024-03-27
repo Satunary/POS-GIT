@@ -2,8 +2,15 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:local="clr-namespace:Lab16"
+             xmlns:converter="clr-namespace:Lab16.Converter"
              x:Class="Lab16.MainPage"
              x:DataType="local:MotorcycleViewModel">
+
+    <ContentPage.Resources>
+        <converter:ConverterNext x:Key="ConvNext" />
+        <converter:ConverterPrev x:Key="ConvPrev"/>
+    </ContentPage.Resources>
+
 
     <ScrollView>
         <Grid>
@@ -23,7 +30,8 @@
 
 
             <CollectionView Grid.ColumnSpan="2" Grid.RowSpan="4" ItemsSource="{Binding Motorcycles}"
-                            
+                            x:Name="MotorcycleColView"
+                            SelectionMode="Single"
                             >
                 <CollectionView.ItemTemplate>
                     <DataTemplate x:DataType="local:Motorcycle">
@@ -38,14 +46,48 @@
             
 
            
-            <Label Grid.Row="0" Grid.Column="2" Text="Name"/>
-            <Label Grid.Row="0" Grid.Column="3" Text=""/>
+            <Label Grid.Row="0" Grid.Column="2" Text="Model"/>
+            <Label Grid.Row="0" Grid.Column="3" Text="{Binding SelectedItem.Model, Source={x:Reference MotorcycleColView}}"/>
             
+            
+            <Label Grid.Row="1" Grid.Column="2" Text="Make"/>
+            <Label Grid.Row="1" Grid.Column="3" Text="{Binding SelectedItem.Make, Source={x:Reference MotorcycleColView}}"/>
 
-            <Entry Grid.Row="4" Grid.Column="2" Text="Make" x:Name="make"/>
+            <Label Grid.Row="2" Grid.Column="2" Text="Type"/>
+            <Label Grid.Row="2" Grid.Column="3" Text="{Binding SelectedItem.Type, Source={x:Reference MotorcycleColView}}"/>
+
+            <Label Grid.Row="3" Grid.Column="2" Text="Power"/>
+            <Label Grid.Row="3" Grid.Column="3" Text="{Binding SelectedItem.Power, Source={x:Reference MotorcycleColView}}"/>
+
+
+            <Button Grid.Row="4" Grid.Column="1" 
+                    Text="Next"
+                    Command="{Binding NextStep}"
+                    IsEnabled="{Binding LimitLoc,
+                    Converter={StaticResource ConvNext}}"/>
+
+            <Button Grid.Row="4" Grid.Column="0"
+                    Text="Prev"
+                    Command="{Binding PrevStep}"
+                    IsEnabled="{Binding LimitLoc,
+                                        Converter={StaticResource ConvPrev}}"
+                    />
+
+            <Picker Grid.Row="4" Grid.Column="2" x:Name="make" Title="Make">
+                <Picker.ItemsSource>
+                    <x:Array Type="{x:Type x:String}">
+                        <x:String>KTM</x:String>
+                        <x:String>Kawasaki</x:String>
+                        <x:String>Dukati</x:String>
+                        <x:String>honda</x:String>
+                    </x:Array>
+                </Picker.ItemsSource>
+            </Picker>
             <Button Grid.Row="4" Grid.Column="3"
+                    Text="{Binding LoadBtnText}"
+                IsEnabled="{Binding BTNON}"
                 Command="{Binding Fetching}"
-                CommandParameter="{Binding Text, Source={x:Reference make}}"
+                CommandParameter="{Binding SelectedItem, Source={x:Reference make}}"
                 
                 />
 

@@ -8,6 +8,11 @@
             var motorcyleVM = new MotorcycleViewModel();
             BindingContext = motorcyleVM;      
         }
+
+        private void MotorcycleColView_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
     }
 
 }
