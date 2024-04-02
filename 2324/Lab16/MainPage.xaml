@@ -77,9 +77,15 @@
                 <Picker.ItemsSource>
                     <x:Array Type="{x:Type x:String}">
                         <x:String>KTM</x:String>
+                        <x:String>Honda</x:String>
                         <x:String>Kawasaki</x:String>
-                        <x:String>Dukati</x:String>
-                        <x:String>honda</x:String>
+                        <x:String>Yamaha</x:String>
+                        <x:String>Aprilia</x:String>
+                        <x:String>Malaguti</x:String>
+                        <x:String>Vins</x:String>
+                        <x:String>AJP</x:String>
+                        <x:String>Access</x:String>
+                        <x:String>Beta</x:String>
                     </x:Array>
                 </Picker.ItemsSource>
             </Picker>

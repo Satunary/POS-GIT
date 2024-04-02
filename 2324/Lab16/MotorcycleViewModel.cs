@@ -51,6 +51,8 @@ namespace Lab16
         private string _loadBtnText;
         public string LoadBtnText { get { return _loadBtnText; }set { SetProperty(ref _loadBtnText, value); } }
 
+        private bool firstFetch;
+
         //private Motorcycle _selectedItem;
         //public Motorcycle SelectedItem { get { return _selectedItem; } set { SetProperty(ref _selectedItem,value); } }
 
@@ -65,6 +67,8 @@ namespace Lab16
             LimitLoc = 0;
             BTNON = true;
             LoadBtnText = "Load";
+            httpClient.DefaultRequestHeaders.Clear();
+            httpClient.DefaultRequestHeaders.Add("X-Api-Key", "ieXotCDQwJeZ4vpH+SkGXw==L6kbEKfYEEAvcGUH");
         }
 
         public IRelayCommand<string> Fetching => new RelayCommand<string>(Fetch);
@@ -80,10 +84,10 @@ namespace Lab16
             try
             {
                 
-                httpClient.DefaultRequestHeaders.Add("X-Api-Key", "ieXotCDQwJeZ4vpH+SkGXw==L6kbEKfYEEAvcGUH");
                 motorcyclesIntern = await httpClient.GetFromJsonAsync<ObservableCollection<Motorcycle>>($"https://api.api-ninjas.com/v1/motorcycles?make={make}");
-                
+                LimitLoc = 0;
                 Next();
+
             }
             catch(Exception e) { LoadBtnText = "Invalid Make"; }
             BTNON = true;
