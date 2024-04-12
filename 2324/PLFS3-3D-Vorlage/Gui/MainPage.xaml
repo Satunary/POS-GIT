@@ -1,0 +1,58 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Plfs3.MainPage"
+             xmlns:local="clr-namespace:Plfs3"
+             xmlns:Model="clr-namespace:PlfsMaui.Model"
+             xmlns:VModel="clr-namespace:Plfs3.ViewModel"
+            xmlns:Converter="clr-namespace:Plfs3.Converter"
+             >
+
+    <ContentPage.Resources>
+        <Converter:IsBackValidConverter x:Key="ValBack"/>
+        <Converter:IsVorValidConverter x:Key="ValVor"/>
+        <Converter:NameConv x:Key="NameConv"/>
+    </ContentPage.Resources>
+    
+    <ScrollView>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+
+            <Label Grid.Row="0" Grid.ColumnSpan="2"
+                   x:DataType="VModel:SchuelerViewModel">
+                <Label.Text>
+                    <MultiBinding Converter="{StaticResource NameConv}">
+                        <Binding Path="vName"/>
+                        <Binding Path="nName"/>
+                    </MultiBinding>
+                </Label.Text>
+            </Label>
+            <Label Grid.Row="1" Grid.Column="0" Text="Vorname"/>
+            <Label Grid.Row="2" Grid.Column="0" Text="Nachname"/>
+            <Label Grid.Row="3" Grid.Column="0" Text="Geburtsdatum"/>
+                
+            <Entry Grid.Row="1" Grid.Column="1" x:Name="vName" x:DataType="VModel:SchuelerViewModel" Text="{Binding Current.Vorname}"/>
+            <Entry Grid.Row="2" Grid.Column="1" x:Name="nName" x:DataType="VModel:SchuelerViewModel" Text="{Binding Current.Nachname}"/>
+            <DatePicker Grid.Row="3" Grid.Column="1" x:Name="gebDat" x:DataType="VModel:SchuelerViewModel" Date="{Binding Current.Gebdat}"/>
+
+            <Button Grid.Row="4" Grid.Column="0" Text="Zurueck" x:DataType="VModel:SchuelerViewModel" 
+                    Command="{Binding Back}" 
+                    IsEnabled="{Binding Loc, Converter={StaticResource ValBack} }"/>
+            <Button Grid.Row="4" Grid.Column="1" Text="Vor" x:DataType="VModel:SchuelerViewModel" Command="{Binding Vor}"
+                    IsEnabled="{Binding Loc, Converter={StaticResource ValVor} }"
+                    />
+
+        </Grid>
+    </ScrollView>
+
+</ContentPage>

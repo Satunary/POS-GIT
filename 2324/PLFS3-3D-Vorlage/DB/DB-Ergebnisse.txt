@@ -1,0 +1,14 @@
+(Abfrage 1) Anzahl: 31, Notenschnitt: 2,61
+(Abfrage 2) Ergebnisse fuer den Abfragewert = 2,61
+(Abfrage 2) Name: Beringer, Anzahl: 12, Notenschnitt: 3,25
+(Abfrage 2) Name: Hanke, Anzahl: 2, Notenschnitt: 3,50
+(Abfrage 3) Name: Aichholzer, Anzahl: 07.09.1946
+(Abfrage 3) Name: Beringer, Anzahl: 15.07.1961
+(Abfrage 3) Name: Berger, Anzahl: 02.03.1945
+(Abfrage 3) Name: Hanke, Anzahl: 12.12.1950
+(Abfrage 3) Name: Lorenz, Anzahl: 12.12.1958
+(Abfrage 3) Name: Makandreou, Anzahl: 01.04.1947
+(Abfrage 3) Name: Pirkner, Anzahl: 22.06.1955
+(Abfrage 3) Name: Preißl, Anzahl: 05.07.1956
+(Abfrage 3) Name: Radlbauer, Anzahl: 11.11.1949
+(Abfrage 3) Name: Renki, Anzahl: 19.08.1961
