@@ -58,6 +58,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ClockSample", "..\240313-Cl
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Lab16", "..\Lab16\Lab16.csproj", "{1E426366-5AE1-4CB9-A51E-66FE0B158CAE}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Gui", "..\PLFS3-3D-Vorlage\Gui\Gui.csproj", "{4D953448-5D5A-43DC-99C4-E68955ECB1BF}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -276,6 +278,14 @@ Global
 		{1E426366-5AE1-4CB9-A51E-66FE0B158CAE}.Release|x64.ActiveCfg = Release|x64
 		{1E426366-5AE1-4CB9-A51E-66FE0B158CAE}.Release|x64.Build.0 = Release|x64
 		{1E426366-5AE1-4CB9-A51E-66FE0B158CAE}.Release|x64.Deploy.0 = Release|x64
+		{4D953448-5D5A-43DC-99C4-E68955ECB1BF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4D953448-5D5A-43DC-99C4-E68955ECB1BF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4D953448-5D5A-43DC-99C4-E68955ECB1BF}.Debug|x64.ActiveCfg = Debug|x64
+		{4D953448-5D5A-43DC-99C4-E68955ECB1BF}.Debug|x64.Build.0 = Debug|x64
+		{4D953448-5D5A-43DC-99C4-E68955ECB1BF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4D953448-5D5A-43DC-99C4-E68955ECB1BF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4D953448-5D5A-43DC-99C4-E68955ECB1BF}.Release|x64.ActiveCfg = Release|x64
+		{4D953448-5D5A-43DC-99C4-E68955ECB1BF}.Release|x64.Build.0 = Release|x64
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

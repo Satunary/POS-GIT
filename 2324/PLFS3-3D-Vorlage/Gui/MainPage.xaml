@@ -32,8 +32,8 @@
                    x:DataType="VModel:SchuelerViewModel">
                 <Label.Text>
                     <MultiBinding Converter="{StaticResource NameConv}">
-                        <Binding Path="vName"/>
-                        <Binding Path="nName"/>
+                        <Binding Path="{x:Reference vName}"/>
+                        <Binding Path="{x:Reference nName}"/>
                     </MultiBinding>
                 </Label.Text>
             </Label>
