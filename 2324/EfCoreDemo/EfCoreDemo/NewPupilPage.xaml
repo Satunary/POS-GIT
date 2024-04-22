@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="EfCoreDemo.NewPupilPage"
+             x:Class="EfCoreDemo2.NewPupilPage"
              xmlns:local="clr-namespace:EfCoreDemoV2"
             xmlns:model="clr-namespace:EfCoreDemoV2.Model"
              xmlns:vm="clr-namespace:EfCoreDemoV2.ViewModels"
@@ -29,8 +29,11 @@
 
             <Entry Grid.Column="1" Grid.Row="0"   Text="{Binding CurrentStudent.Firstname}"/>
             <Entry Grid.Column="1" Grid.Row="1"   Text="{Binding CurrentStudent.Lastname}"/>
-            <Entry Grid.Column="1" Grid.Row="2"  Text="{Binding CurrentStudent.Gender.Name}"/>
-            <DatePicker Grid.Column="1" Grid.Row="3"  Date="{Binding CurrentStudent.DateOfBirth}"/>
+            <Picker  Grid.Column="1" Grid.Row="2" VerticalOptions="Center"
+                    ItemsSource="{Binding Genders}" SelectedItem="{Binding CurrentStudent.Gender}" 
+                    ItemDisplayBinding="{Binding Name}" />
+
+            <Entry Grid.Column="1" Grid.Row="3"  Text="{Binding CurrentStudent.DateOfBirth}"/>
 
             <Button Grid.Column="1" Grid.Row="4" Text="Save" Command="{Binding AddPupilCommand}"/>
         </Grid>

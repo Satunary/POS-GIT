@@ -14,13 +14,13 @@ using CommunityToolkit.Mvvm.ComponentModel;
 using Microsoft.EntityFrameworkCore;
 using CommunityToolkit.Mvvm.Input;
 using Bogus;
-using EfCoreDemo;
+using EfCoreDemo2;
 
 namespace EfCoreDemoV2.ViewModels {
     /// <summary>
     /// Viewmodel für MainWindow
     /// </summary>
-    public class MainViewModel : ObservableObject {
+    public sealed class MainViewModel : ObservableObject {
         /// <summary>
         /// Instanz der Personendatenbank.
         /// </summary>
@@ -30,16 +30,22 @@ namespace EfCoreDemoV2.ViewModels {
         public ICommand SavePupilCommand { get; }
         public ICommand DeletePupilCommand { get; }
         public ICommand AddPupilCommand { get; }
+        public ICommand NewExamCommand { get; }
+        
 
         // Lesen aus der DB.
         public List<Schoolclass> Classes => _db.Classes.ToList();
         public List<Gender> Genders => _db.Genders.ToList();
+
+        public List<Teacher> Teachers => _db.Teachers.ToList();
 
         /// <summary>
         /// Binding für die CollectionView. Ist eine ObservableCollection, damit die Liste 
         /// automatisch beim Hinzufügen oder Löschen aktualisiert wird.
         /// </summary>
         public ObservableCollection<StudentDto> Pupils { get; } = new ObservableCollection<StudentDto>();
+
+        public ObservableCollection<Exam> Exams { get; } = new ObservableCollection<Exam>();
 
         /// <summary>
         /// Zustandsinfo (z.B. Exception). Ist das Bindingfeld für die View.
@@ -79,9 +85,27 @@ namespace EfCoreDemoV2.ViewModels {
             get => _currentStudent;
             set
             {
+                
                 SetProperty(ref _currentStudent, value);
+
+                if(_currentStudent is null)
+                {
+                    Exams.Clear();
+                    return;
+                }
+                ReadExams();
             }
         }
+
+        private Exam _currentExam;
+        public Exam CurrentExam
+        {
+            get { return _currentExam; }
+            set {
+                SetProperty(ref _currentExam, value); }
+        }
+
+        
         /// <summary>
         /// Konstruktor mit Initialisierungen.
         /// Initialisiert die Command Properties für die Buttons. Hier kann die Action, die durchgeführt
@@ -92,12 +116,19 @@ namespace EfCoreDemoV2.ViewModels {
         /// geschehen, da sonst immer eine neue Instanz erzeugt wird. Deswegen initialisieren wir
         /// hier vorher.
         /// </summary>
-        public MainViewModel()
+
+
+        private static Lazy<MainViewModel> lazy = new Lazy<MainViewModel>(() => new MainViewModel());
+        public static MainViewModel Instance => lazy.Value;
+
+        private MainViewModel()
         {
             NewPupilCommand = new RelayCommand(NewPupil);
             SavePupilCommand = new RelayCommand(SavePupil); //, () => CurrentStudent is not null);
             DeletePupilCommand = new RelayCommand(DeletePupil);
             AddPupilCommand = new RelayCommand(AddPupil);
+            NewExamCommand = new RelayCommand(NewExam);
+            
         }
 
         private void SavePupil()
@@ -112,8 +143,7 @@ namespace EfCoreDemoV2.ViewModels {
                 // Wenn nein, machen wir ein INSERT.
                 if (studentDb is null)
                 {
-                    var student = StudentDto.CreateFrom(CurrentStudent);
-                    _db.Pupils.Add(student);
+                    
                 }
                 else
                 {
@@ -143,17 +173,20 @@ namespace EfCoreDemoV2.ViewModels {
 
         private async void NewPupil()
         {
-            await Shell.Current.Navigation.PushAsync(new NewPupilPage(this));
+            _currentStudent = new StudentDto();
+            await Shell.Current.Navigation.PushAsync(new NewPupilPage());
         }
 
         private async void AddPupil()
         {
-             Gender g = _db.Genders.Where(a => a.Name.Equals(CurrentStudent.Gender.Name)).First();
-            g??=new Gender("CurrentStudent.Gender.Name");
-
-            _db.Pupils.Add(new Student(CurrentStudent.Firstname, CurrentStudent.Lastname, g, CurrentStudent.Schoolclass, CurrentStudent.DateOfBirth));
-
+            CurrentStudent.Schoolclass = CurrentClass;
+            CurrentStudent.DateOfBirth??=CurrentStudent.DateOfBirth=DateTime.Now;
+            Student s = StudentDto.CreateFrom(CurrentStudent);
+            _db.Pupils.Add(s);
+            Pupils.Add(CurrentStudent);
             await Shell.Current.Navigation.PopAsync();
+            
+           
         }
 
         /// <summary>
@@ -181,6 +214,18 @@ namespace EfCoreDemoV2.ViewModels {
             CurrentStudent = null;
         }
 
+        private async void NewExam()
+        {
+
+            Student s = _db.Pupils.Where(p=>p.Id==CurrentStudent.Id).FirstOrDefault();
+            s??=StudentDto.CreateFrom(CurrentStudent);
+            CurrentExam = new Exam("", DateTime.Now, Teachers.First(), s, 0);
+            
+            await Shell.Current.Navigation.PushAsync(new NewExamPage());
+        }
+
+        
+
         /// <summary>
         /// Liest alle Schüler einer Klasse in die ObservableCollection
         /// </summary>
@@ -200,6 +245,20 @@ namespace EfCoreDemoV2.ViewModels {
                 ;
 
             Pupils.ReplaceAll(students.Select(x => StudentDto.CreateFrom(x)));
+        }
+
+        private void ReadExams()
+        {
+            if (CurrentStudent is null)
+            {
+                Exams.Clear();
+                return;
+            }
+            // Wir lesen alle Students der Klasse (der Name ist der PK) und sortieren nach dem Namen.
+            var examss = _db.Exams.Where(e=> e.Student == StudentDto.CreateFrom(CurrentStudent));
+
+            Exams.ReplaceAll(examss);
+            
         }
     }
 }

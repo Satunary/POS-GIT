@@ -6,12 +6,15 @@
              xmlns:local="clr-namespace:EfCoreDemoV2"
              xmlns:model="clr-namespace:EfCoreDemoV2.Model"
              xmlns:dto="clr-namespace:EfCoreDemoV2.Dto"
+             xmlns:converter="clr-namespace:EfCoreDemo2.Converter"
              x:DataType="vm:MainViewModel"
-             x:Class="EfCoreDemoV2.MainPage">
+             x:Class="EfCoreDemo2V2.MainPage">
 
 
     <ContentPage.Resources>
-        <local:GenderIconVisibilityConverter x:Key="VisiblityConverterKey"/>
+        <converter:GenderIconVisibilityConverter x:Key="VisiblityConverterKey"/>
+        <converter:TeachConv x:Key="Teach"/>
+
     </ContentPage.Resources>
 
 
@@ -64,52 +67,115 @@
 
         <!-- ANZEIGE DER SCHÜLERDATEN -->
         <Grid toolkit:DockLayout.DockPosition="Top" x:DataType="vm:MainViewModel">
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="100"/>
-                    <ColumnDefinition Width="*"/>
-                </Grid.ColumnDefinitions>
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="Auto"/>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="100"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
                 <RowDefinition Height="Auto"/>
                 <RowDefinition Height="Auto"/>
                 <RowDefinition Height="Auto"/>
                 <RowDefinition Height="Auto"/>
-                </Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
 
-                <!-- Zeile mit Vorname. -->
-                <Label Text="Vorname:" Grid.Column="0" Grid.Row="0" VerticalOptions="Center" />
-                <Entry Margin="0" Grid.Column="1" Grid.Row="0" VerticalOptions="Center"
+            <!-- Zeile mit Vorname. -->
+            <Label Text="Vorname:" Grid.Column="0" Grid.Row="0" VerticalOptions="Center" />
+            <Entry Margin="0" Grid.Column="1" Grid.Row="0" VerticalOptions="Center"
                      Text="{Binding CurrentStudent.Firstname}" />
 
-                <!-- 2. Zeile mit Nachname. -->
-                <Label Text="Nachname:" Grid.Column="0" Grid.Row="1" VerticalOptions="Center"/>
-                <Entry Margin="0,5,0,5" Grid.Column="1" Grid.Row="1" VerticalOptions="Center"
+            <!-- 2. Zeile mit Nachname. -->
+            <Label Text="Nachname:" Grid.Column="0" Grid.Row="1" VerticalOptions="Center"/>
+            <Entry Margin="0,5,0,5" Grid.Column="1" Grid.Row="1" VerticalOptions="Center"
                      Text="{Binding CurrentStudent.Lastname}" />
 
-                <!-- 3. Zeile mit Geschlecht -->
-                <Label Text="Geschlecht:" Grid.Column="0" Grid.Row="2" VerticalOptions="Center"/>
-                <!-- Die ComboBox holt sich die Werte aus der Liste Genders im VM. Sie ist eine
+            <!-- 3. Zeile mit Geschlecht -->
+            <Label Text="Geschlecht:" Grid.Column="0" Grid.Row="2" VerticalOptions="Center"/>
+            <!-- Die ComboBox holt sich die Werte aus der Liste Genders im VM. Sie ist eine
                      Liste von Gender Objekten. Mit SelectedValue geben wir an, in welches Property
                      das ausgewählte Geschlecht geschrieben wird. Hier schreiben wir gleich in das
                      CurrentPupil Objekt. Mit DisplayMemberPath wird angegeben, welches Property
                      in der Liste angezeigt wird. Bei SelectedValue wird jedoch das ganze Gender
                      Objekt geschrieben. -->
-                <Picker Margin="0, 5, 0, 5" Grid.Column="1" Grid.Row="2" VerticalOptions="Center"
+            <Picker Margin="0, 5, 0, 5" Grid.Column="1" Grid.Row="2" VerticalOptions="Center"
                      ItemsSource="{Binding Genders}" SelectedItem="{Binding CurrentStudent.Gender}" 
                         ItemDisplayBinding="{Binding Name}" />
 
-                <!-- 4. Zeile mit Geburtsdatum.  -->
-                <Label Text="Geburtsdatum:" Grid.Column="0" Grid.Row="3" VerticalOptions="Center"/>
-                <Entry Margin="0, 5, 0, 5" Grid.Column="1" Grid.Row="3" VerticalOptions="Center"
+            <!-- 4. Zeile mit Geburtsdatum.  -->
+            <Label Text="Geburtsdatum:" Grid.Column="0" Grid.Row="3" VerticalOptions="Center"/>
+            <Entry Margin="0, 5, 0, 5" Grid.Column="1" Grid.Row="3" VerticalOptions="Center"
                      Text="{Binding CurrentStudent.DateOfBirth}" />
 
-                <!-- 5. Zeile mit den Buttons. -->
-                <HorizontalStackLayout Grid.Column="2" Grid.Row="4">
-                    <Button  Margin="0, 0, 30, 0" Text="Neuer Schüler" Command="{Binding NewPupilCommand}"/>
-                    <Button  Margin="0, 0, 30, 0" Text="Änderung speichern" Command="{Binding SavePupilCommand}"/>
-                    <Button Text="Schüler löschen" Command="{Binding DeletePupilCommand}"/>
+            <!-- 5. Zeile mit den Buttons. -->
+            <HorizontalStackLayout Grid.Column="2" Grid.Row="4">
+                <Button  Margin="0, 0, 30, 0" Text="Neuer Schüler" Command="{Binding NewPupilCommand}"/>
+                <Button  Margin="0, 0, 30, 0" Text="Änderung speichern" Command="{Binding SavePupilCommand}"/>
+                <Button Text="Schüler löschen" Command="{Binding DeletePupilCommand}"/>
+            </HorizontalStackLayout>
+
+
+            <CollectionView
+                ItemsSource="{Binding Exams}" 
+                SelectedItem="{Binding CurrentExam}"
+                SelectionMode="Single"
+                Grid.Column="1"
+                Grid.Row="5"
+                >
+                <CollectionView.ItemTemplate >
+                    <DataTemplate x:DataType="model:Exam">
+                        <VerticalStackLayout>
+                            <Label >
+                                <Label.Text>
+                                    <MultiBinding StringFormat="{} {0} {1} {2} {3}">
+                                        <Binding Path="Subject"/>
+                                        <Binding Path="Date"/>
+                                        <Binding Converter="{StaticResource Teach}" Path="Examiner"/>
+                                        <Binding Path="Grade"/>
+                                    </MultiBinding>
+                                </Label.Text>
+                            </Label>
+                        </VerticalStackLayout>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+            <Grid Grid.Column="1" Grid.Row="6" ColumnSpacing="100" RowSpacing="15">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="Auto"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+
+                <Label Grid.Column="0" Grid.Row="0" Text="Neue Prüfung"/>
+                <Label Grid.Column="0" Grid.Row="1" Text="Gegenstand"/>
+                <Label Grid.Column="0" Grid.Row="2" Text="Datum"/>
+                <Label Grid.Column="0" Grid.Row="3" Text="Prüfer"/>
+                <Label Grid.Column="0" Grid.Row="4" Text="Note"/>
+
+                <Entry Grid.Column="1" Grid.Row="1" Text="{Binding CurrentExam.Subject}" IsReadOnly="True"/>
+                <Entry Grid.Column="1" Grid.Row="4" Text="{Binding CurrentExam.Grade}" IsReadOnly="True"/>
+                <Entry Grid.Column="1" Grid.Row="2" Text="{Binding CurrentExam.Date}" IsReadOnly="True"/>
+
+
+                <Picker Grid.Column="1" Grid.Row="3" 
+                        ItemsSource="{Binding Teachers}" SelectedItem="{Binding CurrentExam.Examiner}" 
+                        ItemDisplayBinding="{Binding TeacherNr}" IsEnabled="False"/>
+
+                <HorizontalStackLayout Grid.ColumnSpan="2" Grid.Row="5">
+                    <Button Text="New Exam" Command="{Binding NewExamCommand}"/>
                 </HorizontalStackLayout>
+
             </Grid>
+        </Grid>
 
 
 

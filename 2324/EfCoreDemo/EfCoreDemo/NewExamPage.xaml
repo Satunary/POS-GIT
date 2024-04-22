@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:vm="clr-namespace:EfCoreDemoV2.ViewModels"
+             x:Class="EfCoreDemo2.NewExamPage"
+             xmlns:local="clr-namespace:EfCoreDemoV2"
+             Title="NewExamPage">
+    <VerticalStackLayout>
+        <Grid Grid.Column="1" Grid.Row="6" ColumnSpacing="100" RowSpacing="15">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+
+            <Label Grid.Column="0" Grid.Row="0" Text="Neue Prüfung"/>
+            <Label Grid.Column="0" Grid.Row="1" Text="Gegenstand"/>
+            <Label Grid.Column="0" Grid.Row="2" Text="Datum"/>
+            <Label Grid.Column="0" Grid.Row="3" Text="Prüfer"/>
+            <Label Grid.Column="0" Grid.Row="4" Text="Note"/>
+
+            <Entry Grid.Column="1" Grid.Row="1" Text="{Binding CurrentExam.Subject}" IsReadOnly="{Binding ExamReadOnlyEntry}"/>
+            <Entry Grid.Column="1" Grid.Row="4" Text="{Binding CurrentExam.Grade}" IsReadOnly="{Binding ExamReadOnlyEntry}"/>
+            <Entry Grid.Column="1" Grid.Row="2" Text="{Binding CurrentExam.Date}" IsReadOnly="{Binding ExamReadOnlyEntry}"/>
+
+
+            <Picker Grid.Column="1" Grid.Row="3" 
+            ItemsSource="{Binding Teachers}" SelectedItem="{Binding CurrentExam.Examiner}" 
+            ItemDisplayBinding="{Binding TeacherNr}" IsEnabled="{Binding ExamEnabledPicker}"/>
+
+            <HorizontalStackLayout Grid.ColumnSpan="2" Grid.Row="5">
+                <Button Text="New Exam" Command="{Binding NewExamCommand}"/>
+                <Button Text="Save" Command="{Binding SaveExamCommand}"/>
+            </HorizontalStackLayout>
+
+        </Grid>
+    </VerticalStackLayout>
+</ContentPage>

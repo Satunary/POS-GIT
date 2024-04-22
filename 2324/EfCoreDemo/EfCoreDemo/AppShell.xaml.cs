@@ -1,4 +1,4 @@
-﻿using EfCoreDemo;
+﻿using EfCoreDemo2;
 
 namespace EfCoreDemoV2 {
     public partial class AppShell : Shell {

@@ -1,16 +1,13 @@
 using EfCoreDemoV2.ViewModels;
 
-namespace EfCoreDemo;
+namespace EfCoreDemo2;
 
 public partial class NewPupilPage : ContentPage
 {
-	/*public NewPupilPage()
-	{
-		InitializeComponent();
-	}*/
-    public NewPupilPage(MainViewModel mvm)
+	
+    public NewPupilPage()
     {
         InitializeComponent();
-        BindingContext = mvm;
+        BindingContext = MainViewModel.Instance;
     }
 }

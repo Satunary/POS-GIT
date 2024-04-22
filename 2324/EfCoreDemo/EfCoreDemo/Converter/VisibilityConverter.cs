@@ -6,13 +6,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace EfCoreDemoV2;
+namespace EfCoreDemo2.Converter;
 
 /// <summary>
 /// Zeigt das Gendericon an, wenn der Gendername des übergebenen Gender Objekt gleich dem
 /// Parameter ist.
 /// </summary>
-public class GenderIconVisibilityConverter : IValueConverter {
+public class GenderIconVisibilityConverter : IValueConverter
+{
     public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
     {
         Gender? actualValue = value as Gender;

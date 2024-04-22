@@ -1,5 +1,6 @@
 ﻿using CommunityToolkit.Maui;
 using EfCoreDemoV2.Model;
+using EfCoreDemoV2.ViewModels;
 using Microsoft.Extensions.Logging;
 
 namespace EfCoreDemoV2 {
@@ -26,7 +27,7 @@ namespace EfCoreDemoV2 {
                 db.Database.EnsureCreated();
                 db.Seed();
             }
-
+            builder.Services.AddSingleton<MainViewModel>();
 
             return builder.Build();
         }

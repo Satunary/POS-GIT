@@ -67,7 +67,19 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <Compile Update="ViewModels\ExamViewModel.cs">
+	    <CustomToolNamespace></CustomToolNamespace>
+	  </Compile>
+	</ItemGroup>
+
+	<ItemGroup>
+	  <MauiXaml Update="NewExamPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
 	  <MauiXaml Update="NewPupilPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Views\NewPage1.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	</ItemGroup>
