@@ -9,6 +9,8 @@ public partial class MainPage : ContentPage {
     public MainPage()
     {
         InitializeComponent();
+
+        _viewModel=MainViewModel.Instance;
         BindingContext = _viewModel;
 
         Loaded += MainPage_Loaded;

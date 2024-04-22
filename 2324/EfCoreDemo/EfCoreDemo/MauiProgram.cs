@@ -27,7 +27,7 @@ namespace EfCoreDemoV2 {
                 db.Database.EnsureCreated();
                 db.Seed();
             }
-            builder.Services.AddSingleton<MainViewModel>();
+            //builder.Services.AddSingleton<MainViewModel>();
 
             return builder.Build();
         }

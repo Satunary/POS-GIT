@@ -8,7 +8,7 @@
              xmlns:dto="clr-namespace:EfCoreDemoV2.Dto"
              xmlns:converter="clr-namespace:EfCoreDemo2.Converter"
              x:DataType="vm:MainViewModel"
-             x:Class="EfCoreDemo2V2.MainPage">
+             x:Class="EfCoreDemoV2.MainPage">
 
 
     <ContentPage.Resources>

@@ -10,7 +10,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
 
-namespace EfCoreDemo2.ViewModels
+namespace EfCoreDemoV2.ViewModels
 {
    public class ExamViewModel:ObservableObject
     {
@@ -24,23 +24,34 @@ namespace EfCoreDemo2.ViewModels
 
         public ICommand SaveExamCommand { get; }
 
+        public List<Teacher> Teachers => MainViewModel.Instance.Teachers;
+
+        private Exam _currentExam2;
+        public Exam CurrentExam2
+        {
+            get { return _currentExam2; }
+            set
+            {
+                SetProperty(ref _currentExam2, value);
+            }
+        }
         public ExamViewModel()
         {
             SaveExamCommand = new RelayCommand(SaveExam);
+            CurrentExam2 = MainViewModel.Instance.CurrentExam;
         }
 
         
 
-        private void SaveExam()
+        private async void SaveExam()
         {
-            Exam e = MainViewModel.Instance.CurrentExam;
-
-            if (e is null || e.Grade == 0 || e.Subject.Length < 1) { return; }
-            _db.Exams.Add(e);
-            MainViewModel.Instance.Exams.Add(e);
-
-           ExamReadOnlyEntry = true;
-           ExamEnabledPicker = false;
+            if (CurrentExam2 is null || CurrentExam2.Grade == 0 || CurrentExam2.Subject.Length < 1) { return; }
+            CurrentExam2.Student=_db.Pupils.Where(s=>s.Id==CurrentExam2.Student.Id).First();
+            CurrentExam2.Examiner = _db.Teachers.Where(s => s.TeacherNr == CurrentExam2.Examiner.TeacherNr).First();
+            _db.Exams.Add(CurrentExam2);
+            _db.SaveChanges();
+            MainViewModel.Instance.Exams.Add(CurrentExam2);
+            await Shell.Current.Navigation.PopAsync();
         }
     }
 }
